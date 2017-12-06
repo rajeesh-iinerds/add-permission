@@ -1,0 +1,13 @@
+version: 0.1
+phases:
+  install:
+    commands:
+      - npm install time
+      - npm install json-query
+      - aws cloudformation package --template-file template.yaml --s3-bucket cicdtest.appcohesion.io 
+                                   --output-template-file outtemplate.yaml
+      - sed -i '/DefinitionUri/d' template.yaml 
+artifacts:
+  type: zip
+  files:
+    - outtemplate.yaml

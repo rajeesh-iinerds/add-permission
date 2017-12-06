@@ -1,0 +1,17 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Resources:
+  CICDApiGatewayPreTestFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      FunctionName: cicdAddPermissions
+      Handler: index.handler
+      Runtime: nodejs6.10
+      Environment:
+        Variables: 
+          S3_BUCKET: cicdsample.appcohesion.io
+
+
+
+     
+

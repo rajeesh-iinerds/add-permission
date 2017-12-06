@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  CFFunction:
+    Properties:
+      CodeUri: s3://cicdsample.appcohesion.io/fbf807d6ea55eaf817b6d8784126f996
+      Environment:
+        Variables:
+          S3_BUCKET: cicdsample.appcohesion.io
+      FunctionName: cfTemplateView
+      Handler: index.handler
+      Runtime: nodejs6.10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31
