@@ -41,7 +41,7 @@ exports.handler = function(event, context, callback) {
     };
 
     // REST Api id of the deployed API.
-    var restApiIdVal;
+    var restApiIdVal, functionArn, apiArn = '';
 
     // Define the Success function.
     var putJobSuccess = function(message) {
