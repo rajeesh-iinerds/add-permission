@@ -7,7 +7,7 @@
 'use strict'
 
 const jsonQuery = require('json-query');
-const uuid = require('node-uuid');
+var uuid = require('node-uuid');
 var AWS = require('aws-sdk');
 
 /**
