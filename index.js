@@ -7,6 +7,7 @@
 'use strict'
 
 const jsonQuery = require('json-query');
+const uuid = require('node-uuid');
 var AWS = require('aws-sdk');
 
 /**
@@ -21,6 +22,7 @@ AWS.config.apiVersions = {
 var cloudformation = new AWS.CloudFormation();
 var codepipeline = new AWS.CodePipeline();
 var apigateway = new AWS.APIGateway();
+var lambda = new AWS.lambda();
 
 // Lambda handler start here.
 exports.handler = function(event, context, callback) {
