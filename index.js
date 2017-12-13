@@ -88,7 +88,7 @@ exports.handler = function(event, context, callback) {
                                 }) 
 
                                 restApiIdVal = currentApiData.value;
-                                apiArn += restApiIdVal + '/*/GET';
+                                apiArn += restApiIdVal + '/*/GET/';
                                 //var resourceUri = '/get';
                                 //apiArn += 'GET' + resourceUri;
 
