@@ -22,7 +22,7 @@ AWS.config.apiVersions = {
 var cloudformation = new AWS.CloudFormation();
 var codepipeline = new AWS.CodePipeline();
 var apigateway = new AWS.APIGateway();
-var lambda = new AWS.lambda();
+var lambda = new AWS.Lambda();
 
 // Lambda handler start here.
 exports.handler = function(event, context, callback) {
