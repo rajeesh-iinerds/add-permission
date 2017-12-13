@@ -43,7 +43,8 @@ exports.handler = function(event, context, callback) {
     };
 
     // REST Api id of the deployed API.
-    var restApiIdVal, functionArn, apiArn = '';
+    var restApiIdVal, functionArn = '';
+    var apiArn = 'arn:aws:execute-api:us-east-2:902849442700:';
 
     // Define the Success function.
     var putJobSuccess = function(message) {
@@ -87,9 +88,9 @@ exports.handler = function(event, context, callback) {
                                 }) 
 
                                 restApiIdVal = currentApiData.value;
-                                apiArn += restApiIdVal + '/*/';
-                                var resourceUri = '/get';
-                                apiArn += 'GET' + resourceUri;
+                                apiArn += restApiIdVal + '/*/GET';
+                                //var resourceUri = '/get';
+                                //apiArn += 'GET' + resourceUri;
 
                                 var apiParams = {
                                     restApiId: restApiIdVal /* required */
