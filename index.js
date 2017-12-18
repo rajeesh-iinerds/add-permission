@@ -41,7 +41,6 @@ var restMethod = 'GET';
 
 // REST Api id of the deployed API.
 var restApiIdVal, functionArn = '';
-var apiArn = 'arn:aws:execute-api:us-east-2:902849442700:';
 
 // Lambda handler starts here.
 exports.handler = function(event, context, callback) {
@@ -60,8 +59,6 @@ exports.handler = function(event, context, callback) {
         StackName: stackName,
         TemplateStage: 'Processed'
     };
-
-    
 
     // Define the Success function.
     var putJobSuccess = function(message) {
@@ -117,6 +114,9 @@ exports.handler = function(event, context, callback) {
                          * Retrieve All the API and then pass the Rest API Id to retrieve the correct API.
                          */
                         apigateway.getRestApis(apiListParams, function(err, data) {
+                            
+                            var apiArn = 'arn:aws:execute-api:us-east-2:902849442700:';
+                            
                             if (err) {
                             }    
                             else {
@@ -175,6 +175,14 @@ exports.handler = function(event, context, callback) {
                                      */
                                     for (var stageIndex = 0; stageIndex < apiStages.length; stageIndex++) {
                                         var stageName = apiStages[stageIndex];
+                                        
+                                        /**
+                                         * Since there are no Alias for "dev" stage, no need to apply
+                                         * permissions for that.
+                                         */
+                                        if (stageName == 'dev') {
+                                            continue;
+                                        }
                                         /**
                                          * The ALIAS for which the the permission is applicable.
                                          * Currently, it is only for "staging"  and "prod" alias.
