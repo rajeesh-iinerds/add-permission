@@ -115,7 +115,6 @@ exports.handler = function(event, context, callback) {
                          */
                         apigateway.getRestApis(apiListParams, function(err, data) {
                             
-                            var apiArn = 'arn:aws:execute-api:us-east-2:902849442700:';
                             
                             if (err) {
                             }    
@@ -134,6 +133,7 @@ exports.handler = function(event, context, callback) {
                                  * it based on the changes in resources. The '*' may get changed based on 
                                  * the RESOURCES defined and also the method name.
                                  */
+                                var apiArn = 'arn:aws:execute-api:us-east-2:902849442700:';
                                 apiArn += restApiIdVal + '/*/' + restMethod + '/';
                                 
                                 var apiParams = {
