@@ -40,7 +40,7 @@ var lambda = new AWS.Lambda();
 var restMethod = 'GET';
 
 // REST Api id of the deployed API.
-var restApiIdVal, functionArn = '';
+var restApiIdVal;
 
 // Lambda handler starts here.
 exports.handler = function(event, context, callback) {
@@ -99,11 +99,6 @@ exports.handler = function(event, context, callback) {
                         var functionName = jsonTemplate.Resources.CCTFunction.Properties.FunctionName;
                         
                         /**
-                         * Function ARN.
-                         */
-                        functionArn +=  functionName;
-
-                        /**
                          *  Define the API List parameters.
                          */ 
                         var apiListParams = {
@@ -135,6 +130,11 @@ exports.handler = function(event, context, callback) {
                                  */
                                 var apiArn = 'arn:aws:execute-api:us-east-2:902849442700:';
                                 apiArn += restApiIdVal + '/*/' + restMethod + '/';
+
+                                /**
+                                 * Function ARN.
+                                 */
+                                var functionArn =  functionName;
                                 
                                 var apiParams = {
                                     restApiId: restApiIdVal /* required */
